@@ -7,12 +7,20 @@
 </template>
 
 <style>
+body{
+  background-image: url(https://i.postimg.cc/cJRQp6HK/hex.jpg);
+  background-repeat: no-repeat;
+  /* background-position: center; */
+  background-size: cover;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  /* text-align: center; */
+  max-width: 600px;
+  margin: 0 auto;
+  color: #efefef;
 }
 
 nav {
