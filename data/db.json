@@ -1,16 +1,16 @@
 {
-    "projects" : [
-        {
-            "id" : 1,
-            "title" : "Home page",
-            "details" : "Needs Css and design",
-            "complete" : false
-        },
-        {
-            "id" : 2,
-            "title" : "Code in odd projects",
-            "details" : "Look at the code and improve",
-            "complete" : true
-        }
-    ]
+  "projects": [
+    {
+      "id": 1,
+      "title": "Home page",
+      "details": "Needs Css and design",
+      "complete": false
+    },
+    {
+      "id": 2,
+      "title": "Css",
+      "details": "Add csss",
+      "complete": true
+    }
+  ]
 }
