@@ -11,12 +11,6 @@
       "title": "Css",
       "details": "Add csss",
       "complete": false
-    },
-    {
-      "title": "Pot",
-      "details": "Color the pot to match the ground",
-      "complete": false,
-      "id": 3
     }
   ]
 }

@@ -1,23 +1,30 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import AddProject from '../views/AddProject.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import HomeView from "../views/HomeView.vue";
+import AddProject from "../views/AddProject.vue";
+import Edit from "../components/EditModal.vue";
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: "/",
+    name: "home",
+    component: HomeView,
   },
   {
-    path: '/add',
-    name: 'AddProject',
-    component: AddProject
-  }
-]
+    path: "/add",
+    name: "AddProject",
+    component: AddProject,
+  },
+  {
+    path: "/edit/:id",
+    name: "edit",
+    component: Edit,
+    props: true,
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
