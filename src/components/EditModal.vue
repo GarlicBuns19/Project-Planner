@@ -1,6 +1,6 @@
 <template>
-    <h2>Edit this Project</h2>
-  <form @submit.prevent="handleSubmit">
+  <h2>Edit this Project</h2>
+  <form @submit.prevent>
     <label>Title</label>
     <input type="text" v-model="title" required />
     <label>Details</label>
@@ -13,29 +13,47 @@
       required
     ></textarea>
     <br />
-    <button @click="addProject">Update project</button>
+    <button @click="editProject">Update project</button>
   </form>
 </template>
 
 <script>
 export default {
-    props: ['id'],
-    data(){
-        return {
-            title : '',
-            details: '',
-            url : 'http://localhost:3000/projects/' + this.id
-        }
-    },
-    mounted(){
-        fetch(this.url)
-        .then(res => res.json())
-        .then(data => {
-            this.title = data.title
-            this.details = data.details
+  props: ["id"],
+  data() {
+    return {
+      title: "",
+      details: "",
+      url: "http://localhost:3000/projects/" + this.id,
+    };
+  },
+  mounted() {
+    fetch(this.url)
+      .then((res) => res.json())
+      .then((data) => {
+        this.title = data.title;
+        this.details = data.details;
+      });
+  },
+  methods: {
+    editProject() {
+      fetch(this.url, {
+        method: "PATCH",
+        body: JSON.stringify({
+          title: this.title,
+          details: this.details,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then(() => {
+          this.$router.push("/");
         })
-    }
-}
+        .catch((err) => console.log(err));
+    },
+  },
+};
 </script>
 
 <style>
