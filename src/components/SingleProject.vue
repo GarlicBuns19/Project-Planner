@@ -45,7 +45,7 @@ export default {
       })
         .then(() => this.$emit("tickTask", this.project.id))
         .catch((err) => console.log(err));
-    },
+    }
   },
 };
 </script>

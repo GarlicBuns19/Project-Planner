@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
     <div v-for="project in projects" :key="project.id">
       <!-- <p>{{project.title}}</p> -->
       <SingleProject

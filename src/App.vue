@@ -1,11 +1,15 @@
 <template>
-  <!-- <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav> -->
+  <Navbar/>
   <router-view/>
 </template>
-
+<script>
+import Navbar from './components/Navbar.vue'
+export default{
+  components : {
+    Navbar
+  }
+}
+</script>
 <style>
 body{
   background-image: url(https://i.postimg.cc/cJRQp6HK/hex.jpg);
@@ -30,10 +34,13 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  text-decoration: none;
+  color: #efefef;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+a.router-link-exact-active {
+  border-bottom: 4px solid #42b983;
+  padding: 0px 0 10px 0;
+  /* color: #42b983; */
 }
 </style>
