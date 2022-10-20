@@ -1,11 +1,11 @@
 <template>
-  <div class="project">
+  <div class="project" :class="{ complete: project.complete }">
     <div class="actions">
       <h3 @click="showDetails = !showDetails">{{ project.title }}</h3>
       <div class="icons">
         <span class="material-icons"> edit </span>
         <span class="material-icons" @click="deleteProject"> delete </span>
-        <span class="material-icons"> done </span>
+        <span class="material-icons tick" @click="tickProject"> done </span>
       </div>
     </div>
     <div v-if="showDetails" class="details">
@@ -28,8 +28,23 @@ export default {
       fetch(this.url, {
         method: "DELETE",
       })
-      .then(() => { this.$emit('delete', this.project.id)})
-      .catch(err => console.log(err))
+        .then(() => {
+          this.$emit("delete", this.project.id);
+        })
+        .catch((err) => console.log(err));
+    },
+    tickProject() {
+      fetch(this.url, {
+        method: "PATCH",
+        body: JSON.stringify({
+          complete: !this.project.complete,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then(() => this.$emit("tickTask", this.project.id))
+        .catch((err) => console.log(err));
     },
   },
 };
@@ -56,4 +71,11 @@ export default {
                 transition: 0.7s
             .material-icons:hover
                 color: grey
+
+.complete
+    border-left: 4px solid #158519
+    .actions
+        .icons
+            .tick
+                color: #158519
 </style>

@@ -3,7 +3,11 @@
     <h1>Home</h1>
     <div v-for="project in projects" :key="project.id">
       <!-- <p>{{project.title}}</p> -->
-      <SingleProject :project="project" @delete="handleDelete" />
+      <SingleProject
+        :project="project"
+        @delete="handleDelete"
+        @tickTask="handleTick"
+      />
     </div>
   </div>
 </template>
@@ -25,6 +29,13 @@ export default {
   methods: {
     handleDelete(id) {
       this.projects = this.projects.filter((p) => p.id !== id);
+      fetch("http://localhost:3000/projects")
+        .then((res) => res.json())
+        .then((data) => (this.projects = data));
+    },
+    handleTick(id) {
+      let p = this.projects.find(p => p.id === id)
+      p.complete = !p.complete
       fetch("http://localhost:3000/projects")
         .then((res) => res.json())
         .then((data) => (this.projects = data));
