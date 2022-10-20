@@ -2,14 +2,16 @@
   <div class="home">
     <h1>Home</h1>
     <div v-for="project in projects" :key="project.id">
-      {{project.id}}
+      <!-- <p>{{project.title}}</p> -->
+      <SingleProject :project=project />
     </div>
   </div>
 </template>
 
 <script>
+import SingleProject from "../components/SingleProject.vue";
 export default {
-  components: {},
+  components: { SingleProject },
   data(){
     return {
       projects : []

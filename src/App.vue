@@ -9,9 +9,10 @@
 <style>
 body{
   background-image: url(https://i.postimg.cc/cJRQp6HK/hex.jpg);
-  background-repeat: no-repeat;
-  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  background-position: center;
   background-size: cover;
+  background-attachment: fixed;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
